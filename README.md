@@ -187,7 +187,7 @@ Next, add a transition property:
 }
 ```
 
-You Do!
+## You Do!
 
 Create a new pen on Codepen and create your own transition!
 

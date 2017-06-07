@@ -35,7 +35,7 @@ Today we'll be covering 3 major topics:
 * CSS Animations
 * Vendor Prefixes
 
-**Transitions** let us tell the browser how to smoothly change a property over time. For example, if the height of an element changes (due to a :hover selector), we can tell the browser to change the height gradually over 1 second.
+**Transitions** let us tell the browser how to smoothly change a property over time. For example, if the height of an element changes (due to a hover selector), we can tell the browser to change the height gradually over 1 second.
 
 **Transforms** are a set of CSS properties that take an element and transform it's shape, e.g. rotating it, scaling it, skewing it, etc.
 
@@ -84,9 +84,6 @@ Each group will have 20 minutes to prepare a short explanation / demo of their a
 1. In computer animation, the developer acts as the keyframe artist, and the computer is the 'tweener'.
 
 <br />
-
-![](http://www.ubelly.com/wp-content/uploads/2012/01/keyframes.png)
-
 <br />
 
 ## Create Basic Transitions in CSS

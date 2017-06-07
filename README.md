@@ -26,18 +26,6 @@ creator:
 
 <br />
 
-## Hook
-
-[The Five Obstructions](http://www.imdb.com/title/tt0354575/) is one of my favorite films.  Jorgan Leth created a short in 1967, entitled _The Perfect Human_.  
-
-Lars Von Trier (a Danish director most known for _Dancer in the Dark_ and _Dogville_) saw this short and thought that it was so perfect that he wondered whether Leth could re-create it.  
-
-Von Trier is part of a wave of directors that thought that in order to create new pieces of art, they should place restrictions on each other.  Von Trier 'dares' Jordan Leth to re-create his famous short, with restrictions that are decided upon by Von Trier.  One of the restrictions is to create an animated short.
-
-This is it: [The Five Obstructions Animation](https://www.youtube.com/watch?v=9-Y1PhOt6sM).
-
-<br />
-
 ## Intro
 
 Today we'll be covering 3 major topics:
@@ -202,39 +190,39 @@ Next, add a transition property:
 }
 ```
 
-![](http://i.imgur.com/ylb6WX9.gif)
+You Do!
+
+Create a new pen on Codepen and create your own transition!
 
 1. Create a 100px by 100px square box that has a background color of tomato.
-1. Write a CSS rule that will transition your div from this initial state:
+2. Write a CSS rule that will transition your div from this initial state:
 
-    ```css
-    div {
-        background: tomato;
-        width: 100px;
-        height: 100px;
-}
+```css
+  div {
+    background: tomato;
+    width: 100px;
+    height: 100px;
+  }
 ```
 
-1. Add to this final state... Write a CSS rule that changes the background color to turquoise when you hover over the element with your mouse
+3. Add to this final state... Write a CSS rule that changes the background color to turquoise when you hover over the element with your mouse
 
-    ```css
-    div:hover {
-        background: turquoise;
-    }
+```css
+  div:hover {
+    background: turquoise;
+  }
 ```
 
-1. Let's make that transition a little smoother:
+4. Let's make that transition a little smoother:
 
-    ```css
-    div {
-        ...  
-        transition-duration: 3s;
-        transition-property: background; /* specify which property you want to transition */
-        transition-timing-function: linear;
-    }
-    ```
-
-- There are many timing functions. Check them out at http://easings.net
+```css
+  div {
+    ...  
+    transition-duration: 3s;
+    transition-property: background; /* specify which property you want to transition */
+    transition-timing-function: linear;
+  }
+```
 
 <br />
 
@@ -309,6 +297,7 @@ Syntax:
 
 1. `transform: scale(2) skewX(20deg) rotate(4deg);`
 
+**Note**: In order to add multiple transforms, it is separated by a space. To add multiple transitions, you separate them by commas.  CSS is weird sometimes
 <br />
 
 ### 3D Space
@@ -382,41 +371,19 @@ If you know the math, you can write your own transformation matrix
 }    
 ```
 
-![](http://i.imgur.com/ylb6WX9.gif)
+## You Do!
 
 1. Rotate your box 45 degrees
-1. Translate it along the X axis by 200px
-1. Translate it along the Y axis by 200px
-2. Try `transform: translate(200px, 200px);`
-1. Scale the div so it is twice as big
-2. Skew the div by 10 degrees
-3. You can also combine multiple values: `transform: translateX(200px) skew(30deg) scale(3);`
-4. `transform: perspective(35px) translate3d(20px, 30px, 15px);`
+2. Translate it along the X axis by 200px
+3. Translate it along the Y axis by 200px
+4. Try `transform: translate(200px, 200px);`
+5. Scale the div so it is twice as big
+6. Skew the div by 10 degrees
+7. You can also combine multiple values: `transform: translateX(200px) skew(30deg) scale(3);`
+8. `transform: perspective(35px) translate3d(20px, 30px, 15px);`
     - x, y, z axis
     - perspective is distance from the user 
     - when perspective === z-axis you're behind the element
-
-<br />
-
-## Transform is Better than Position
-
-<!--Take 5 minutes to read this article by Paul Irish on [Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/).
--->
-Why don't we just use something like `position: relative` and `left: 200px`?
-
-
-Transforms are better for animation for two reasons:
-
-1. When elements are changed in the DOM, the browser checks to see if other elements are being pushed around.  When using transforms, the browser doesn't do this which makes it faster.
-    * Add `display: inline-block` to your CSS rule
-    * Add some lorem ipsum 
- 
-1. If you're doing a 3D transform, the computer's Graphics Processing Unit (GPU) is engaged, which is really fast
-    - http://codepen.io/paulirish/pen/nkwKs (uses top/left position)
-	    - Ultimately, the element has to re-calculate every time the computer 
-	    moves based on what is around it.
-    - http://codepen.io/paulirish/pen/LsxyF (uses translate)
-		- Doesn't worry about what is around it.
 
 <br />
 
@@ -428,41 +395,41 @@ Transitions are great for going from one state to another, but sometimes you nee
 
 1. Define a named animation with a set of keyframes. These are similar to the traditional animation "tweeners" that were mentioned earlier.
 	
-    ```css
-    @keyframes example {
-        from { background-color: red; }
-        to   { background-color: yellow; }
-    }
-    ```
+```css
+  @keyframes example {
+    from { background-color: red; }
+    to   { background-color: yellow; }
+  }
+```
+
 <br />
 
-	```css
-	@keyframes example {
-	    0%   { background-color: red; left: 0px; top: 0px; }
-	    25%  { background-color: yellow; left: 200px; top: 0px; }
-	    50%  { background-color: blue; left: 200px; top: 200px; }
-	    75%  { background-color: green; left: 0px; top: 200px; }
-	    100% { background-color: red; left:0px; top: 0px; }
-	}
-	```
-    > Note, remember that for production, `translate` will be faster than `left`, `top`, etc.
+```css
+@keyframes example {
+  0%   { background-color: red; left: 0px; top: 0px; }
+  25%  { background-color: yellow; left: 200px; top: 0px; }
+  50%  { background-color: blue; left: 200px; top: 200px; }
+  75%  { background-color: green; left: 0px; top: 200px; }
+  100% { background-color: red; left:0px; top: 0px; }
+}
+```
 
 
-1. Assign the animation to a rule and give it a duration
+2. Assign the animation to a rule and give it a duration
 	
-	```css
-	div {
-	    width: 100px;
-	    height: 100px;
-	    background-color: red;
-	    position: relative;
-	    animation-name: example;
-	    animation-duration: 4s;
-	    animation-timing-function: linear;
-	}
-	```
+```css
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+  }
+```
 
-1. Additional properties:
+3. Additional properties:
     - [animation-duration](https://www.w3schools.com/cssref/css3_pr_animation-duration.asp)
         - specifies how many seconds or milliseconds an animation takes to complete one cycle
         - mandatory in order for the animation to happen
@@ -492,21 +459,23 @@ Transitions are great for going from one state to another, but sometimes you nee
 
 [Animation Example](http://codepen.io/marenwoodruff/pen/EWKMKJ?editors=1100)
 
-![](http://i.imgur.com/ylb6WX9.gif)
+## You Do
+
+Apply the following to the animation we've been working on:
 
 1. Try adding the following properties
 
-    ```css
+```css
     div {
         ...
         animation-iteration-count: inifinite;
         animation-direction: alternate;    
     }
-    ```
+```
     
-1. Try adding another keyframe
+2. Try adding another keyframe
 
-    ```css
+```css
     15% {
         background-color: orange;
         left: 400px; 
@@ -518,10 +487,10 @@ Transitions are great for going from one state to another, but sometimes you nee
 
 ## 3rd Party CSS Libraries
 
-There are a lot of pre-built CSS libraries out there that are easy to include in your app. Here's an example: https://www.sitepoint.com/top-9-animation-libraries-use-2016/
+There are a lot of pre-built CSS libraries out there that are easy to include in your app. Here's an example: [Top 9 Animation Libraries](https://www.sitepoint.com/top-9-animation-libraries-use-2016/)
 
-- [animate.css](https://daneden.github.io/animate.css/)
-- [greensock.com](https://greensock.com/) (js - Koty Recommends!)
+- [animate.css](https://daneden.github.io/animate.css/) (css)
+- [greensock.com](https://greensock.com/) (js)
 - [jQueryUI](https://jqueryui.com/) (js)
 - [Angular Animate](https://docs.angularjs.org/api/ngAnimate/service/$animateCss) (js)
 
@@ -533,7 +502,7 @@ CSS Animations are easy and mostly compatible.  They are often a good choice
 for basic animation needs. For anything more complex, such as animation that
 depends on user input, you will need to use Javascript. There are good libraries for animation (see above). 
 
-![](http://i.imgur.com/ylb6WX9.gif)
+## You Do
 
 Take 5 minutes to read through these two links:
  
@@ -566,25 +535,24 @@ Let's try this in Codepen.io (make sure to include the jQuery library under Sett
 <br />
 
 1. html:
-
-    ```html
-    <div id="box1">BOX 1</div>
+```html
+  <div id="box1">BOX 1</div>
 ```
-2. css:
 
-    ```css
-    #box1 {
+2. css:
+```css
+  #box1 {
 		height: 100px;
 		width: 100px;
 		padding: 10px;
 		position: relative;
 		background-color: aqua;
-    }
+  }
 ```
 1. jQuery:
 
-    ```js
-    $('#box1').fadeIn(3000).fadeOut(10000);
+```js
+  $('#box1').fadeIn(3000).fadeOut(10000);
 ```
 Here are some [common jQuery effects](http://www.w3schools.com/jquery/jquery_ref_effects.asp) you can use.
 
@@ -595,7 +563,7 @@ Here are some [common jQuery effects](http://www.w3schools.com/jquery/jquery_ref
 [animate()](https://www.w3schools.com/jquery/jquery_animate.asp). The jQuery animate() method is used to create custom animations.
 
 **Syntax**
-<rb />
+<br />
 `$(selector).animate({params},speed,callback);`
 - **params**- required params parameter defines the CSS properties to be animated
 - **speed**- speed parameter specifies the duration of the effect. 
@@ -607,51 +575,36 @@ Here are some [common jQuery effects](http://www.w3schools.com/jquery/jquery_ref
 Here is an example:
  
 1. html:
-
-    ```html
-    <div class="container">
-		<div id="box1">BOX 1</div>
-		<div id="box2">BOX 2</div>
-	</div>
-	<div class="controlButtons">
-		<button type="button">Toggle</button>
-	</div>
+```html
+  <div class="container">
+    <div id="box1">BOX 1</div>
+    <div id="box2">BOX 2</div>
+  </div>
+  <div class="controlButtons">
+    <button type="button">Toggle</button>
+  </div>
 ```
 2. css:
-
-    ```css
-    #box2 {
-		height: 100px;
-		width: 100px;
-		padding: 10px;
-		position: relative;
-		background-color: mediumVioletRed;
-    }
+```css
+  #box2 {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    position: relative;
+    background-color: mediumVioletRed;
+  }
 ```
-
-1. jQuery:
-
-    ```js
-    $("button").click(function(){
-        $("#box2").animate({
-            height: 'toggle';
-        }, 4000);
-});
+3. jQuery:
+```js
+  $("button").click(function(){
+    $("#box2").animate({
+      height: 'toggle';
+    }, 4000);
+  });
 ```
 <br />
 
 [animate() Example](http://codepen.io/marenwoodruff/pen/mWPowR)
-
-<br />
-
-## Lab
-
-Look at these links and complete as many of these exercises as you can:
-
-* [CSS Accordion](https://github.com/ATL-WDI-Curriculum/atl-wdi-9/tree/master/unit_01/w05d04/student_labs/css-accordion)
-* [DolphinCat!](https://github.com/ATL-WDI-Curriculum/atl-wdi-9/tree/master/unit_01/w05d04/student_labs/dolphin-cat-css-animations)
-* [CSS Airbnb](https://github.com/ATL-WDI-Curriculum/atl-wdi-9/tree/master/unit_01/w05d04/student_labs/css-airbnb)
-* [Hyrule Potion Shop](https://github.com/ATL-WDI-Curriculum/atl-wdi-9/tree/master/unit_01/w05d04/student_labs/hyrule_potion_shop)
 
 <br />
 
@@ -661,7 +614,7 @@ Look at the following examples, try to re-create them from scratch using as litt
 
 * [Animated Buttons](http://tympanus.net/Tutorials/AnimatedButtons/index.html) (Transitions and Animations)
 * [Image Hover Effects](http://tympanus.net/Tutorials/OriginalHoverEffects/) (Transitions and Animations)
-* [Solar System in CSS](http://neography.com/journal/our-solar-system-in-css3/) (Transitions and Animations)
+* [Solar System in CSS](http://neography.com/experiment/circles/solarsystem/) (Transitions and Animations)
 
 <br />
 
@@ -676,13 +629,7 @@ Look at the following examples, try to re-create them from scratch using as litt
 - [Paul Irish video- 2D transform's translate() vs absolute positioning: Performance evaluation with Chrome DevTools](https://youtu.be/NZelrwd_iRs)
 - [Chris Coyier- Animation Performance](https://css-tricks.com/tale-of-animation-performance/)
 
-<br />
 
-### Codepens
-- [In class example](https://codepen.io/marenwoodruff/pen/qrZgxL)
-- [You do example- tomato box](http://codepen.io/marenwoodruff/pen/oZxGeV?editors=1100)
-- [Keyframe example](http://codepen.io/marenwoodruff/pen/EWKMKJ?editors=1100)
-- [jQuery example](http://codepen.io/marenwoodruff/pen/mWPowR)
 
 <!--/* @keyframes example {
     0%   {background-color:red; left:0px; top:0px;}
